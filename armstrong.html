@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>armstrong numbers</title>
+    <style>
+       #d1{
+        background-color: aqua;
+        width: 400px;
+        height: 450px;
+        border: 2px dotted yellowgreen;
+        border-radius: 5px;
+        margin-left: 100px;
+       } 
+       label,input{
+        margin-left: 30px;
+        margin-top: 50px;
+       }      
+          .resultText {
+       font-size : 20px;
+        font-style : normal;
+        color : rgb(2, 2, 43);
+       }
+       .submit{
+        background-color: blueviolet;
+        width: 100px;
+        height: 20px;
+        margin-left: 30px;
+       }
+    </style>
+</head>
+<body>
+ <div id="d1">
+<label for="">enter num:</label><input type="text" id="number"><br> <br>
+<button type = "button" onclick = "chkArmstrong()" class="submit" > Submit </button>
+<div class = "resultText">
+<p id = "result"> </p>
+</div>
+ </div>
+ <script>
+    function chkArmstrong(){
+num = document.getElementById("number").value;
+var Number = num;
+var digits = 0;
+
+while(num > 0){
+digits = digits + 1;
+num = parseInt(num/10);
+}
+num = Number;
+var sum = 0;
+while(num > 0) {
+var digit = num%10;
+sum = sum + Math.pow(digit, digits);
+num = parseInt(num/10);
+}
+
+if(sum == Number){
+document.getElementById("result").style.color = "blue";
+document.getElementById("result").innerHTML =  + Number + " is Armstrong Number";
+}else{
+document.getElementById("result").style.color = "purple";
+document.getElementById("result").innerHTML =  + Number + " is NOT Armstrong Number";
+}
+}
+
+ </script>   
+</body>
+</html>
